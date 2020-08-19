@@ -1,0 +1,50 @@
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+      <!-- Tabs Titles -->
+      <h2 class="active"> Sign In </h2>
+      
+      <h2 class="register"><a href="#" routerLink="/register"><h2 class="inactive underlineHover">Sign Up </h2></a></h2>
+  
+      <!-- Icon -->
+      <div class="fadeIn first">
+        <img src="https://i.pinimg.com/originals/39/1f/e3/391fe39c10ef9a08cb43f15ea4952d28.png" id="icon" alt="User Icon" />
+      </div>
+  
+      <!-- Login Form -->
+      <div class="container">
+                          <form (ngSubmit)="login()">
+                 
+                <div class="form-group p-2">
+                    
+                    <input type="email" name="email" class="form-control" [(ngModel)]="email" placeholder="Enter email Id" required>
+                </div>
+                <div class="form-group p-2">
+                    <input type="password" name="password" class="form-control" [(ngModel)]="password" placeholder="Enter Password" required>
+                </div>
+                <div class="form-group p-2">
+                  <input type="submit" class="fadeIn fourth" value="Login">               
+                </div>
+                </form>
+                <div class="form-group">
+                    <p *ngIf="errorMessage.length > 0" class="text-danger">
+                        {{errorMessage}}</p>
+                
+                    <p *ngIf="error.message.length > 0" class="text-danger">
+                        {{error.message}} </p>
+                
+                   
+                </div>
+                <p class="form-section-p">--------------------  OR --------------------</p><br>
+                <div class="fb-login-button" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="true" data-use-continue-as="true" data-width=""></div>
+                <div class="g-signin2" data-width="300" data-height="200" data-longtitle="true">
+                </div>
+            
+    
+                </div>
+      <!-- Remind Passowrd -->
+      <div id="formFooter">
+        <a class="underlineHover" href="#">Forgot Password?</a>
+      </div>
+  
+    </div>
+  </div>

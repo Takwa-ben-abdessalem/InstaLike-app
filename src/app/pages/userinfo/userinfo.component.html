@@ -1,0 +1,19 @@
+<script src="https://www.dukelearntoprogram.com/course1/common/js/image/SimpleImage.js" >
+</script>
+
+<h1> Instagram-Like Portal</h1>
+    <div *ngFor="let card of cards">
+        <app-images [cardData]="card"></app-images>
+    
+        {{ card.title }}
+        <img [src]="url" width ="100" height="100" alt="">
+       <input type="file" (change)="selectFile($event)">
+    </div>
+<div *ngFor="let card of cards">
+    <app-images [cardData]="card"></app-images>
+
+    {{ card.title }}
+</div>
+<br>
+
+

@@ -3,7 +3,19 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  // 2. Add your credentials from step 1
+  production: false,
+  firebase: {
+    apiKey: "AIzaSyC9-hGb4-HofU1kJj3bkcvnoymfUtbMzgw",
+    authDomain: "instagram-like-portol-app.firebaseapp.com",
+    databaseURL: "https://instagram-like-portol-app.firebaseio.com",
+    projectId: "instagram-like-portol-app",
+    storageBucket: "instagram-like-portol-app.appspot.com",
+    messagingSenderId: "987246632721",
+    appId: "1:987246632721:web:707c9a2afecdf7151ab6b0",
+    measurementId: "G-2ZNYZ5JR7D"
+  }
+
 };
 
 /*
