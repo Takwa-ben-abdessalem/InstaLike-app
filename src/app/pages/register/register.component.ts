@@ -9,54 +9,52 @@ import {Router} from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
 
-  email="";
-  password="";
+  email = '';
+  password = '';
   message = '';
   errorMessage = ''; // validation error handle
   error: { name: string, message: string } = { name: '', message: '' }; // for firbase error handle
 
-  constructor(private authservice: AuthService, private router:Router) { }
+  constructor(private authservice: AuthService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
-  clearErrorMessage()
-  {
+  clearErrorMessage() {
     this.errorMessage = '';
-    this.error = {name : '' , message:''};
+    this.error = { name : '' , message: '' };
   }
 
-  register()
-  {
+  register() {
     this.clearErrorMessage();
     if (this.validateForm(this.email, this.password)) {
       this.authservice.registerWithEmail(this.email, this.password)
         .then(() => {
-          this.message = "you are register with data on firbase"
-          //this.router.navigate(['/userinfo'])
+          this.message = 'you are register with data on firbase';
+          this.router.navigate(['/posts']);
         }).catch(_error => {
-          this.error = _error
-          this.router.navigate(['/register'])
-        })
+          this.error = _error;
+          this.router.navigate(['/register']);
+        });
     }
   }
 
   validateForm(email, password)
   {
-    if(email.lenght === 0)
+    if (email.lenght === 0)
     {
-      this.errorMessage = "please enter email id";
+      this.errorMessage = 'please enter email id';
       return false;
     }
 
     if (password.lenght === 0) {
-      this.errorMessage = "please enter password";
+      this.errorMessage = 'please enter password';
       return false;
     }
 
     if (password.lenght < 6)
     {
-      this.errorMessage = "password should be at least 6 char";
+      this.errorMessage = 'password should be at least 6 char';
       return false;
     }
 

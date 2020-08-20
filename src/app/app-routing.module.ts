@@ -7,16 +7,19 @@ import { UserinfoComponent } from './pages/userinfo/userinfo.component';
 
 const routes: Routes = [
 
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: 'login', component: LoginComponent},
+  { path: 'login',
+    loadChildren: () => import('./pages/login/login.module')
+    .then(mod => mod.LoginModule) 
+  },
   { path: 'register',
-  loadChildren: () => import('./modules/general/register/register.module')
-  .then(mod => mod.RegisterModule)
-},  { path: 'userinfo',
-loadChildren: () => import('./modules/general/userinfo/userinfo.module')
-.then(mod => mod.UserinfoModule)
-},  
-    
+    loadChildren: () => import('./pages/register/register.module')
+    .then(mod => mod.RegisterModule)
+  },  
+  { path: 'posts',
+    loadChildren: () => import('./pages/posts/posts.module')
+    .then(mod => mod.PostsModule)
+  },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
 ];
 
 @NgModule({

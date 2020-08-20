@@ -9,8 +9,8 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  email = "";
-  password = "";
+  email = '';
+  password = '';
   errorMessage = ''; // validation error handle
   error: { name: string, message: string } = { name: '', message: '' }; // for firbase error handle
 
@@ -24,33 +24,32 @@ export class LoginComponent implements OnInit {
     this.error = { name: '', message: '' };
   }
 
-  login()
-  {
+  login() {
     this.clearErrorMessage();
     if (this.validateForm(this.email, this.password)) {
       this.authservice.loginWithEmail(this.email, this.password)
         .then(() => {
-         this.router.navigate(['/userinfo'])
+         this.router.navigate(['/posts']);
         }).catch(_error => {
-          this.error = _error
-          this.router.navigate(['/login'])
-        })
+          this.error = _error;
+          this.router.navigate(['/login']);
+        });
     }
   }
 
   validateForm(email, password) {
     if (email.lenght === 0) {
-      this.errorMessage = "please enter email id";
+      this.errorMessage = 'please enter email id';
       return false;
     }
 
     if (password.lenght === 0) {
-      this.errorMessage = "please enter password";
+      this.errorMessage = 'please enter password';
       return false;
     }
 
     if (password.lenght < 6) {
-      this.errorMessage = "password should be at least 6 char";
+      this.errorMessage = 'password should be at least 6 char';
       return false;
     }
 
